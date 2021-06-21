@@ -1,0 +1,73 @@
+form {
+  --icon-size: 1.5rem;
+}
+
+.field-with-boxes {
+  --gap: 0.66rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.box-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.box-item label {
+  cursor: pointer;
+  padding: 0.1em 1em 0.1em var(--gap);
+  transition: color 250ms ease-in;
+}
+
+.box-item input {
+  position: absolute;
+  inset: unset;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.icon-holder {
+  color: gray;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+.icon-holder.round {
+  border-radius: 50%;
+}
+
+.box-item input,
+.icon-holder {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.box-item input:hover ~ label,
+.box-item label:hover {
+  color: blue;
+}
+
+input:checked + .icon-holder {
+  color: blue;
+}
+
+input:focus-visible + .icon-holder {
+  box-shadow: 0 0 0.05rem 0.2rem lightskyblue;
+}
+
+input + .icon-holder svg {
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+
+  transform: scale(0);
+  transition: transform 250ms ease-in;
+}
+
+input:checked + .icon-holder svg {
+  transform: scale(1);
+}
