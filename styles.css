@@ -46,9 +46,11 @@ form {
   height: var(--icon-size);
 }
 
-.box-item input:hover ~ label,
-.box-item label:hover {
-  color: blue;
+@media (hover: hover) {
+  .box-item input:hover ~ label,
+  .box-item label:hover {
+    color: blue;
+  }
 }
 
 input:checked + .icon-holder {
